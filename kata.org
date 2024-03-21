@@ -2,7 +2,7 @@
 
 Kata can be found [[https://github.com/testdouble/contributing-tests/wiki/Bank-OCR-kata][here!]]
 
-* TODO User Story 1
+* DONE User Story 1
 :LOGBOOK:
 CLOCK: [2024-03-21 Thu 16:20]--[2024-03-21 Thu 16:25] =>  0:05
 CLOCK: [2024-03-21 Thu 14:25]--[2024-03-21 Thu 15:39] =>  1:14
@@ -124,7 +124,10 @@ than
 anyday.
 #+end_quote
 
-* TODO User Story 2
+* DONE User Story 2
+:LOGBOOK:
+CLOCK: [2024-03-21 Thu 16:30]--[2024-03-21 Thu 16:51] =>  0:21
+:END:
 #+begin_quote
 Having done that, you quickly realize that the ingenious machine is not in fact infallible. Sometimes it goes wrong in its scanning. The next step therefore is to validate that the numbers you read are in fact valid account numbers. A valid account number has a valid checksum. This can be calculated as follows:
 
@@ -137,6 +140,10 @@ checksum calculation:
 
 So now you should also write some code that calculates the checksum for a given number, and identifies if it is a valid account number.
 #+end_quote
+
+Since I already have the means to iterate through the list, I can just...do this!
+
+An important thing here is to note that the position names are *reversed* by default, not just for the purposes of the checksum! Meaning =d1= on its own is =5= here.
 
 ** Hints
 #+begin_quote

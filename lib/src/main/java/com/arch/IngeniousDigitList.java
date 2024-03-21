@@ -5,6 +5,7 @@ package com.arch;
 
 import java.util.AbstractList;
 import java.util.Arrays;
+import java.util.List;
 
 public class IngeniousDigitList extends AbstractList<IngeniousDigit> {
     /**
@@ -60,4 +61,36 @@ public class IngeniousDigitList extends AbstractList<IngeniousDigit> {
 
         return number.toString();
     }
+
+    /**
+     * @return true if the current ingenious digit list's checksum is valid!
+     */
+    public boolean hasValidChecksum(){
+        return checksum(stream().map(IngeniousDigit::toInt).toList());
+    }
+
+    /**
+     * Performs a checksum calculation for the passed in digits
+     * @param digits a {@link List} of Integers to verify sums up correctly
+     * @return true if the checksum is correct, false otherwise
+     */
+    static boolean checksum(List<Integer> digits){
+        digits = digits.reversed();
+
+        int checksum = digits.getFirst();
+        int idx = 2;
+
+        // checksum layout:
+        //   account number:  3  4  5  8  8  2  8  6  5
+        //   position names:  d9 d8 d7 d6 d5 d4 d3 d2 d1
+        //
+        // checksum calculation:
+        //   (d1 + 2*d2 + 3*d3 +..+ 9*d9) mod 11 = 0
+        for(int digit : digits.stream().skip(1).toList()){
+            checksum += (digit * idx++);
+        }
+
+        return checksum % 11 == 0;
+    }
+
 }

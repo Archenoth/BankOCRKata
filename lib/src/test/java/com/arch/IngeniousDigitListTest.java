@@ -2,6 +2,9 @@ package com.arch;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -56,7 +59,6 @@ class IngeniousDigitListTest {
         "|_||_||_||_||_||_||_||_||_|\n" +
         " _| _| _| _| _| _| _| _| _|\n";
 
-
     private static final String COUNT =
         "    _  _     _  _  _  _  _ \n" +
         "  | _| _||_||_ |_   ||_||_|\n" +
@@ -79,5 +81,9 @@ class IngeniousDigitListTest {
     @Test void shouldBeImmutable(){
         IngeniousDigitList idl = new IngeniousDigitList(ZEROS);
         assertFalse(idl.add(new IngeniousDigit(0)));
+    }
+
+    @Test void checkSumShouldPass(){
+        assertTrue(IngeniousDigitList.checksum(Arrays.asList(3, 4, 5, 8, 8, 2, 8, 6, 5)));
     }
 }
