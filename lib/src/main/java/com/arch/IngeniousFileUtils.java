@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class IngeniousFileUtils {
@@ -39,5 +41,19 @@ public class IngeniousFileUtils {
         }
 
         return digitLists;
+    }
+
+    /**
+     * Writes validation information for IngeniousDigitLists by way of {@link IngeniousDigitList#toStringWithValidation()}
+     * @param ingeniousEntires the {@link Collection} of {@link IngeniousDigitLists}
+     * @param outFile the file to write this information to
+     * @throws IOException
+     */
+    public static void writeValidationData(Collection<IngeniousDigitList> ingeniousEntires, File outFile) throws IOException {
+        try(PrintWriter writer = new PrintWriter(outFile)){
+            for(IngeniousDigitList idl : ingeniousEntires){
+                writer.println(idl.toStringWithValidation());
+            }
+        }
     }
 }

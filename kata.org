@@ -152,7 +152,7 @@ be very careful to read the definition of checksum correctly. It is not a simple
 
 * TODO User Story 3
 :LOGBOOK:
-CLOCK: [2024-03-21 Thu 16:54]
+CLOCK: [2024-03-21 Thu 16:54]--[2024-03-21 Thu 17:28] =>  0:34
 :END:
 #+begin_quote
 Your boss is keen to see your results. He asks you to write out a file of your findings, one for each input file, in this format:
@@ -169,6 +169,8 @@ First thing to change is that the =-1= I return for the bad digits needs a strin
 Why isn't the String the ASCII art? Because that is an *external* format, not the "String representation of *the object's value*".
 
 After that, it's time to macro out some more tests!
+
+Rad! That was pretty easy! Just =toString()= updates and a new test case.
 
 ** Test cases
 #+begin_example
