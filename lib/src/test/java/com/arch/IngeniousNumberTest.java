@@ -14,4 +14,13 @@ class IngeniousNumberTest {
             assertEquals(digit.toInt(), number, "Ingenious Digit " + number + " should parse to itself");
         }
     }
+
+    @Test void invalidShouldBeQuestionDigits(){
+        String invalidDigit =
+            "   \n" +
+            "| |\n" +
+            "|_|\n";
+
+        assertEquals("?", new IngeniousDigit(invalidDigit).toString());
+    }
 }

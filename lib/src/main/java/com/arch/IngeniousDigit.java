@@ -66,4 +66,13 @@ public class IngeniousDigit {
     public static int toInt(String digit){
         return DIGIT_STRINGS.indexOf(digit);
     }
+
+    @Override
+    public String toString() {
+        int value = toInt();
+
+        return value != -1
+            ? Integer.toString(value)
+            : "?";
+    }
 }
