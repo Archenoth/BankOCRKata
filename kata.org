@@ -93,6 +93,21 @@ Actually, avoiding "number" means I can handle the conversion of individual digi
 => 123456789
 #+end_example
 
+** DONE Read a file!
+:LOGBOOK:
+CLOCK: [2024-03-21 Thu 15:42]--[2024-03-21 Thu 16:11] =>  0:29
+:END:
+From the above:
+#+begin_quote
+Your first task is to write a program that can take this file and parse it into actual account numbers.
+#+end_quote
+
+This would usually live in a more specific domain, but getting these from a testable static-only utility until there is a need to complexify things seems like the most straightforward way to do this.
+
+(I don't want file reading in my =List= or number class!)
+
+I also macro'd a file that is just the eleven test cases from User Story 1 as a test.
+
 ** Hints
 #+begin_quote
 I recommend finding a way to write out 3x3 cells on 3 lines in your code, so they form an identifiable digits. Even if your code actually doesn't represent them like that internally. I'd much rather read
