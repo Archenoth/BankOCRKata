@@ -3,6 +3,9 @@
 Kata can be found [[https://github.com/testdouble/contributing-tests/wiki/Bank-OCR-kata][here!]]
 
 * TODO User Story 1
+:LOGBOOK:
+CLOCK: [2024-03-21 Thu 14:25]--[2024-03-21 Thu 15:39] =>  1:14
+:END:
 #+begin_quote
 You work for a bank, which has recently purchased an ingenious machine to assist in reading letters and faxes sent in by branch offices. The machine scans the paper documents, and produces a file with a number of entries which each look like this:
 
@@ -15,7 +18,22 @@ Each entry is 4 lines long, and each line has 27 characters. The first 3 lines o
 Your first task is to write a program that can take this file and parse it into actual account numbers.
 #+end_quote
 
-** TODO Test cases
+So my first instinct is to write a function that extracts 3x3 blocks of characters from a string.
+
+Since my code itself will likely be a "translation" of weird numbers as a string to just numbers, I think I'll likely make an =Iterable= (or maybe a =List=?) of either =int=, or =String=. That way I can index to each digit individually.
+
+But first things's first! I Gotta take the example test cases and turn them into Actual Tests!
+
+It's tempting to just use test resources as a file, but lacking IO is even nicer!
+It's also tempting to use Java's new Multiline strings, but I really want to emphasize the beginning and ends of these strings (Like, the ASCII art "1" has leading spaces that are Very Important)
+
+So, I'm going to call the =Iterable= of these weird digits (that are a max of 9 long) =IngeniousDigits=, (plural because list) carefully avoiding the word "number" because the first test case shows that "=000000000=" should not collapse to "=0=".
+
+Actually, avoiding "number" means I can handle the conversion of individual digit strings with an =IngeniousNumber= class instead! (Currently just to translate between individual digits, but will be a good place for expanding on ideas that are inherent to individual digits rather than the entire collection....
+
+...wait, I should just call them =IngeniousDigit= and =IngeniousDigitList= then!
+
+** DONE Test cases
 #+begin_example
  _  _  _  _  _  _  _  _  _
 | || || || || || || || || |
