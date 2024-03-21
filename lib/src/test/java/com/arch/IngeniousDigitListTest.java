@@ -64,7 +64,25 @@ class IngeniousDigitListTest {
         "  | _| _||_||_ |_   ||_||_|\n" +
         "  ||_  _|  | _||_|  ||_| _|\n";
 
-    @Test void useCase1() {
+    private static final String VALID =
+        " _  _  _  _  _  _  _  _    \n" +
+        "| || || || || || || ||_   |\n" +
+        "|_||_||_||_||_||_||_| _|  |\n";
+
+    private static final String ONE_INVALID_VALUE =
+        "    _  _  _  _  _  _     _ \n" +
+        "|_||_|| || ||_   |  |  | _ \n" +
+        "  | _||_||_||_|  |  |  | _|\n";
+
+    private static final String TWO_INVALID_VALUES =
+        "    _  _     _  _  _  _  _ \n" +
+        "  | _| _||_| _ |_   ||_||_|\n" +
+        "  ||_  _|  | _||_|  ||_| _ \n";
+
+
+
+    // https://github.com/testdouble/contributing-tests/wiki/Bank-OCR-kata#user-story-1
+    @Test void userStory1() {
         assertEquals("000000000", new IngeniousDigitList(ZEROS).toString());
         assertEquals("111111111", new IngeniousDigitList(ONES).toString());
         assertEquals("222222222", new IngeniousDigitList(TWOS).toString());
@@ -85,5 +103,12 @@ class IngeniousDigitListTest {
 
     @Test void checkSumShouldPass(){
         assertTrue(IngeniousDigitList.checksum(Arrays.asList(3, 4, 5, 8, 8, 2, 8, 6, 5)));
+    }
+
+    // https://github.com/testdouble/contributing-tests/wiki/Bank-OCR-kata#user-story-3
+    @Test void userStory3(){
+        assertEquals("000000051", new IngeniousDigitList(VALID).toStringWithValidation());
+        assertEquals("49006771? ILL", new IngeniousDigitList(ONE_INVALID_VALUE).toStringWithValidation());
+        assertEquals("1234?678? ILL", new IngeniousDigitList(TWO_INVALID_VALUES).toStringWithValidation());
     }
 }

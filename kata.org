@@ -168,6 +168,8 @@ First thing to change is that the =-1= I return for the bad digits needs a strin
 
 Why isn't the String the ASCII art? Because that is an *external* format, not the "String representation of *the object's value*".
 
+After that, it's time to macro out some more tests!
+
 ** Test cases
 #+begin_example
  _  _  _  _  _  _  _  _

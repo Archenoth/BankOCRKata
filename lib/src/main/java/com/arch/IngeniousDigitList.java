@@ -57,9 +57,29 @@ public class IngeniousDigitList extends AbstractList<IngeniousDigit> {
     @Override
     public String toString() {
         StringBuilder number = new StringBuilder();
-        stream().map(IngeniousDigit::toInt).forEach(number::append);
+        stream().map(IngeniousDigit::toString).forEach(number::append);
 
         return number.toString();
+    }
+
+    /**
+     * @return the {@link #toString()}, but with error checking!
+     *
+     * Outputting ILL for entries with digits we can't parse, and
+     * ERR for ones that we can, but fail checksum.
+     */
+    public String toStringWithValidation(){
+        String digits = toString();
+
+        if(digits.contains("?")){
+            return digits + " ILL";
+        }
+
+        if(!hasValidChecksum()){
+            return digits + " ERR";
+        }
+
+        return digits;
     }
 
     /**
