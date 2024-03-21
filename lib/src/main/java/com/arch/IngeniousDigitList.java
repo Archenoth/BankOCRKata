@@ -49,6 +49,11 @@ public class IngeniousDigitList extends AbstractList<IngeniousDigit> {
     }
 
     @Override
+    public boolean add(IngeniousDigit e) {
+        return false;
+    }
+
+    @Override
     public String toString() {
         StringBuilder number = new StringBuilder();
         stream().map(IngeniousDigit::toInt).forEach(number::append);

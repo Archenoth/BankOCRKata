@@ -4,6 +4,7 @@ Kata can be found [[https://github.com/testdouble/contributing-tests/wiki/Bank-O
 
 * TODO User Story 1
 :LOGBOOK:
+CLOCK: [2024-03-21 Thu 16:20]--[2024-03-21 Thu 16:25] =>  0:05
 CLOCK: [2024-03-21 Thu 14:25]--[2024-03-21 Thu 15:39] =>  1:14
 :END:
 #+begin_quote

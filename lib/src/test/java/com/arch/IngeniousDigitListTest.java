@@ -1,6 +1,7 @@
 package com.arch;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -73,5 +74,10 @@ class IngeniousDigitListTest {
         assertEquals("888888888", new IngeniousDigitList(EIGHTS).toString());
         assertEquals("999999999", new IngeniousDigitList(NINES).toString());
         assertEquals("123456789", new IngeniousDigitList(COUNT).toString());
+    }
+
+    @Test void shouldBeImmutable(){
+        IngeniousDigitList idl = new IngeniousDigitList(ZEROS);
+        assertFalse(idl.add(new IngeniousDigit(0)));
     }
 }
